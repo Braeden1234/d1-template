@@ -1,42 +1,57 @@
 <footer class="footer">
   <div id="main-content">
-  <div class="footer-container">
-    <div class="footer-left">
-      <h2 class="footer-title">Subscribe to Our Newsletter</h2>
-      <p class="footer-text">Get the latest issues, updates, and space stories straight to your inbox.</p>
-       <form id="myAppForm">
-        <input id="emailInput"  type="email" placeholder="Enter your email" required>
-        <button onclick="submitEmail()">Subscribe</button>
-      </form>
-    </div>
-    <div class="footer-right">
-      <p class="footer-links">
-        <a href="index.html">Home</a> |
-        <a href="https://sites.google.com/view/astroteenmagazine/home-page/staff">Staff</a> |
-        <a href="https://sites.google.com/view/astroteenmagazine/home-page/publications">Publications</a> |
-        <a href="apply.html">Apply</a> |
-        <a href="https://sites.google.com/view/astroteenmagazine/home-page/contact">Contact</a>
-      </p>
-      <p>&copy; 2026 Belvedere Technologies All rights reserved. | Belvedere Technologies</p>
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2 class="footer-title">Subscribe to Our Newsletter</h2>
+        <p class="footer-text">
+          Get the latest issues, updates, and space stories straight to your inbox.
+        </p>
 
+        <form id="myAppForm">
+          <input
+            id="emailInput"
+            type="email"
+            placeholder="Enter your email"
+            required
+          >
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p class="footer-links">
+          <a href="index.html">Home</a> |
+          <a href="https://sites.google.com/view/astroteenmagazine/home-page/staff">Staff</a> |
+          <a href="https://sites.google.com/view/astroteenmagazine/home-page/publications">Publications</a> |
+          <a href="apply.html">Apply</a> |
+          <a href="https://sites.google.com/view/astroteenmagazine/home-page/contact">Contact</a>
+        </p>
+        <p>&copy; 2026 Belvedere Technologies All rights reserved.</p>
+      </div>
     </div>
   </div>
-    </div>
 </footer>
-<script>
-async function submitEmail() {
-  const email = document.getElementById("Email").value;
 
-  const response = await fetch("https://emai-api.braeden-belvedere.workers.dev/", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email })
-  });
+<script>
+document.getElementById("myAppForm").addEventListener("submit", async (e) => {
+  e.preventDefault(); // ⛔ stop page reload
+
+  const email = document.getElementById("emailInput").value;
+
+  const response = await fetch(
+    "https://email-api.braeden-belvedere.workers.dev",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    }
+  );
 
   if (response.ok) {
     alert("Email saved");
+    document.getElementById("emailInput").value = "";
   } else {
     alert("Error saving email");
   }
-}
+});
 </script>
