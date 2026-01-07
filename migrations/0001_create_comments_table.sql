@@ -11,4 +11,5 @@ VALUES
     ('Kristian', 'Congrats!'),
     ('Serena', 'Great job!'),
     ('Max', 'Keep up the good work!')
+        ('Kristian', 'Congrats!'),
 ;
