@@ -10,6 +10,6 @@ INSERT INTO comments (author, content)
 VALUES
     ('Kristian', 'Congrats!'),
     ('Serena', 'Great job!'),
-    ('Max', 'Keep up the good work!')
-        ('Kristian', 'Congrats!'),
+    ('Max', 'Keep up the good work!'),
+        ('Maax', 'Keep up the good work!')
 ;
